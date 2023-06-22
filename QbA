@@ -1,0 +1,580 @@
+1  The Common Language Runtime (CLR) is a virtual machine that provides a runtime environment for .NET applications. It is responsible for managing the execution of .NET code, including memory management, type safety, and exception handling. The CLR also provides a number of services that make it easier to develop and deploy .NET applications, such as code compilation, garbage collection, and security.
+
+The CLR ensures language interoperability by compiling all .NET code into a common intermediate language (CIL). This means that .NET applications written in different languages can run on the same CLR and interact with each other.
+
+The CLR also ensures memory management by using a garbage collector. The garbage collector automatically frees up memory that is no longer being used by an application. This eliminates the need for developers to manually manage memory, which can be a source of errors.
+
+Here are some of the benefits of using the CLR:
+
+Language interoperability: The CLR ensures that .NET applications written in different languages can run on the same CLR and interact with each other.
+Memory management: The CLR uses a garbage collector to automatically free up memory that is no longer being used by an application.
+Type safety: The CLR ensures that .NET code is type-safe, which means that errors can be detected at compile time.
+Exception handling: The CLR provides a comprehensive exception handling system that allows .NET applications to handle errors gracefully.
+Security: The CLR provides a number of security features that help to protect .NET applications from attack.
+Overall, the CLR is a powerful and versatile platform that provides a number of benefits for .NET developers.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2  Exceptions are events that occur during the execution of a program that can disrupt the normal flow of the program. Exceptions can be caused by a variety of factors, such as invalid input, division by zero, or an out-of-memory error.
+
+In C#, exceptions are handled using the try-catch block. The try block contains the code that might throw an exception. The catch block contains the code that will be executed if an exception is thrown.
+
+Here is an example of how to handle exceptions in C#:
+
+C#
+try
+{
+    // Code that might throw an exception
+    int x = 10 / 0;
+}
+catch (Exception ex)
+{
+    // Code that will be executed if an exception is thrown
+    Console.WriteLine(ex.Message);
+}
+Use code with caution. Learn more
+In this example, the try block contains the code that might throw an exception. The catch block contains the code that will be executed if an exception is thrown. The catch block catches all exceptions, so it will be executed if any exception is thrown in the try block.
+
+The catch block can also be used to catch specific exceptions. For example, the following code catches the DivideByZeroException exception:
+
+C#
+try
+{
+    // Code that might throw a DivideByZeroException
+    int x = 10 / 0;
+}
+catch (DivideByZeroException ex)
+{
+    // Code that will be executed if a DivideByZeroException is thrown
+    Console.WriteLine(ex.Message);
+}
+Use code with caution. Learn more
+If an exception is not handled, the program will terminate abnormally. This can cause data loss or other problems. It is important to handle exceptions whenever possible to ensure that the program can continue to run even if an error occurs.
+
+Here are some additional tips for handling exceptions in C#:
+
+Use the finally block to execute code that should be executed regardless of whether an exception is thrown.
+Use the throw keyword to throw an exception.
+Use the System.Exception class to create custom exceptions.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3  An extension method is a static method that is defined in a static class. The first parameter of the extension method specifies the type that the method operates on. The parameter is preceded by the this keyword. Extension methods are only in scope when you explicitly import the namespace into your source code with a using directive.
+
+Here is an example of an extension method:
+
+C#
+public static class StringExtensions
+{
+    public static int WordCount(this string str)
+    {
+        int count = 0;
+        foreach (string word in str.Split(' '))
+        {
+            count++;
+        }
+        return count;
+    }
+}
+Use code with caution. Learn more
+In this example, the StringExtensions class contains an extension method called WordCount(). The WordCount() method takes a string as its parameter and returns the number of words in the string. The WordCount() method is defined as a static method because it does not need to access any instance members of the string class.
+
+To use the WordCount() method, you would first need to import the StringExtensions namespace into your source code. You can do this by adding a using directive to the top of your code file. For example:
+
+C#
+using StringExtensions;
+Use code with caution. Learn more
+Once you have imported the StringExtensions namespace, you can use the WordCount() method as if it were a method defined on the string class. For example:
+
+C#
+string str = "Hello, world!";
+int wordCount = str.WordCount();
+Console.WriteLine(wordCount); // 3
+Use code with caution. Learn more
+As you can see, the WordCount() method is used just like any other method defined on the string class. The only difference is that the WordCount() method is defined in a separate static class.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4  Jagged arrays: A jagged array is an array whose elements are arrays, possibly of different sizes. This means that each row in a jagged array can have a different size.
+Multidimensional arrays: A multidimensional array is an array that has multiple dimensions. This means that the elements of the array are arranged in multiple rows and columns.
+Here is a table that summarizes the differences between jagged arrays and multidimensional arrays:
+
+Feature	Jagged array	Multidimensional array
+Elements arranged in	Rows of different sizes	Rows and columns of the same size
+Accessing elements	Using a single index	Using multiple indices
+Example	int[][] myJaggedArray = new int[10][];	int[,] myMultiArray = new int[10, 20];
+Here is an example of a jagged array:
+
+C#
+int[][] myJaggedArray = new int[10][];
+
+for (int i = 0; i < 10; i++)
+{
+    myJaggedArray[i] = new int[i + 1];
+}
+Use code with caution. Learn more
+In this example, the myJaggedArray variable is a jagged array of 10 rows. The first row has 1 element, the second row has 2 elements, and so on.
+
+Here is an example of a multidimensional array:
+
+C#
+int[,] myMultiArray = new int[10, 20];
+
+for (int i = 0; i < 10; i++)
+{
+    for (int j = 0; j < 20; j++)
+    {
+        myMultiArray[i, j] = i * j;
+    }
+}
+Use code with caution. Learn more
+In this example, the myMultiArray variable is a multidimensional array of 10 rows and 20 columns. Each element of the array is the product of its row and column indices.
+
+The main difference between jagged arrays and multidimensional arrays is that the elements of a jagged array can be of different sizes, while the elements of a multidimensional array must all be the same size.
+
+Jagged arrays are often used to represent data that is naturally irregular, such as a list of customer orders where each order can have a different number of items. Multidimensional arrays are often used to represent data that is naturally regular, such as a matrix of numbers.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5   The SqlConnection class in ADO.NET is a class that represents a connection to a SQL Server database. It is used to open and close connections to SQL Server databases, and to execute SQL statements against those databases.
+
+The SqlConnection class has a number of properties that can be used to configure the connection to a SQL Server database, such as the database name, the server name, and the user name and password. It also has a number of methods that can be used to open and close connections, and to execute SQL statements.
+
+The SqlConnection class is a fundamental class in ADO.NET, and it is used by many other ADO.NET classes, such as the SqlCommand class and the SqlDataReader class.
+
+Here are some of the benefits of using the SqlConnection class:
+
+It is a well-documented class: The SqlConnection class is well-documented, which means that there is a lot of information available about how to use it.
+It is a reliable class: The SqlConnection class has been around for many years and is a reliable class.
+It is a versatile class: The SqlConnection class can be used to connect to a variety of SQL Server databases.
+Overall, the SqlConnection class is a powerful and versatile class that can be used to connect to SQL Server databases. It is a good choice for both beginners and experienced developers.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6   Performance: ASP.NET is a high-performance framework that can be used to create web applications that are responsive and efficient.
+Security: ASP.NET includes a number of features that help to protect web applications from attack, such as role-based authorization and data encryption.
+Scalability: ASP.NET is a scalable framework that can be used to create web applications that can handle a large number of users.
+Interoperability: ASP.NET is a language-neutral framework that can be used with a variety of programming languages, including C#, VB.NET, and F#.
+Extensibility: ASP.NET is a extensible framework that can be customized to meet the specific needs of your web application.
+Here are some additional benefits of using ASP.NET:
+
+It is a mature framework: ASP.NET has been around for over 20 years and has a large and active community of developers. This means that there is a lot of documentation and support available for ASP.NET.
+It is well-supported by Microsoft: Microsoft continues to invest in ASP.NET and releases new features and updates on a regular basis. This ensures that ASP.NET is a reliable and future-proof framework.
+It is open source: ASP.NET is an open source framework, which means that the source code is available for anyone to review and contribute to. This makes ASP.NET a more transparent and secure framework.
+Overall, ASP.NET is a powerful and versatile framework that can be used to create a wide variety of web applications. It is a good choice for both beginners and experienced developers.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7  For loop: A for loop is a control flow statement that iterates a block of code a specified number of times. The for loop has three parts: the initialization, the condition, and the increment. The initialization is executed once before the loop starts. The condition is evaluated before each iteration of the loop. If the condition is true, the block of code is executed. If the condition is false, the loop terminates. The increment is executed after each iteration of the loop.
+
+While loop: A while loop is a control flow statement that iterates a block of code as long as a specified condition is true. The while loop has two parts: the condition and the body. The condition is evaluated before each iteration of the loop. If the condition is true, the body of the loop is executed. If the condition is false, the loop terminates.
+
+Do-while loop: A do-while loop is a control flow statement that iterates a block of code at least once, even if the condition is false. The do-while loop has two parts: the body and the condition. The body of the loop is executed first. Then, the condition is evaluated. If the condition is true, the body of the loop is executed again. If the condition is false, the loop terminates.
+
+Here are some examples of when you would choose to use each type of loop:
+
+For loop: You would use a for loop when you know the number of times you want to iterate the loop. For example, you would use a for loop to iterate through an array of numbers.
+
+While loop: You would use a while loop when you do not know the number of times you want to iterate the loop. For example, you would use a while loop to read data from a file until the end of the file is reached.
+
+Do-while loop: You would use a do-while loop when you want to execute the body of the loop at least once, even if the condition is false. For example, you would use a do-while loop to prompt the user for input until they enter a valid value.
+
+Here is a table that summarizes the differences between the three types of loops:
+
+Loop	Initialization	Condition	Increment	Execution
+For	Once	Before each iteration	After each iteration	At least once
+While	Before each iteration	Before each iteration	N/A	Until the condition is false
+Do-while	N/A	Before each iteration	After each iteration	At least once
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8   Sealed classes cannot be inherited from. This means that no other class can be derived from a sealed class.
+Sealed methods cannot be overridden. This means that a sealed method cannot be overridden by a derived class.
+Sealed properties cannot be re-written. This means that a sealed property cannot be re-written by a derived class.
+Here is a table that summarizes what can and cannot be done with a sealed class:
+
+Operation	Can be done	Cannot be done
+Seal a class	Yes	No
+Inherit from a sealed class	No	Yes
+Override a sealed method	No	Yes
+Re-write a sealed property	No	Yes
+The impact of sealing a class is that it prevents the class from being extended. This can be useful for classes that are designed to be immutable or that should not be extended for security reasons.
+
+Here is an example of a sealed class:
+
+C#
+sealed class MyClass
+{
+    public void MyMethod()
+    {
+        // Do something.
+    }
+}
+Use code with caution. Learn more
+In this example, the MyClass class is sealed. This means that no other class can be derived from the MyClass class. The MyMethod() method is also sealed. This means that the MyMethod() method cannot be overridden by a derived class
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9 Single-dimensional array: A single-dimensional array is an array that has a single dimension. This means that the elements of the array are arranged in a single row.
+Multidimensional array: A multidimensional array is an array that has multiple dimensions. This means that the elements of the array are arranged in multiple rows and columns.
+Here is a table that summarizes the differences between single-dimensional arrays and multidimensional arrays:
+
+Feature	Single-dimensional array	Multidimensional array
+Number of dimensions	1	2 or more
+Elements arranged in	Single row	Multiple rows and columns
+Accessing elements	Using a single index	Using multiple indices
+Example	int[] myArray = new int[10];	int[,] myMultiArray = new int[10, 20];
+Here is an example of a single-dimensional array:
+
+C#
+int[] myArray = new int[10];
+
+myArray[0] = 1;
+myArray[1] = 2;
+myArray[2] = 3;
+...
+Use code with caution. Learn more
+Here is an example of a multidimensional array:
+
+C#
+int[,] myMultiArray = new int[10, 20];
+
+myMultiArray[0, 0] = 1;
+myMultiArray[0, 1] = 2;
+myMultiArray[0, 2] = 3;
+...
+
+myMultiArray[1, 0] = 10;
+myMultiArray[1, 1] = 20;
+myMultiArray[1, 2] = 30;
+...
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10  Delegates are a type of reference type that encapsulate a method. They can be used to pass methods as parameters, to store methods in collections, and to invoke methods dynamically.
+
+The purpose of delegates is to provide a way to decouple the code that calls a method from the code that implements the method. This makes it easier to reuse code and to implement callbacks.
+
+Here is an example of the declaration and usage of a delegate:
+
+C#
+delegate void MyDelegate(string message);
+
+void DoSomething(MyDelegate delegate)
+{
+    delegate("Hello, world!");
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create a delegate that points to the DoSomething() method.
+        MyDelegate delegate = DoSomething;
+
+        // Invoke the delegate.
+        delegate("Hello, world!");
+    }
+}
+Use code with caution. Learn more
+In this example, the MyDelegate delegate is declared to have a single parameter of type string and a return type of void. The DoSomething() method is declared to take a MyDelegate delegate as a parameter.
+
+The Main() method creates a delegate that points to the DoSomething() method. The delegate is then invoked with the string "Hello, world!" as a parameter.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11  Asynchronous programming is a way of writing code that allows you to run multiple tasks at the same time. This is done by suspending the execution of one task while another task is running. When the first task is finished, it is resumed and execution continues.
+
+In .NET, asynchronous programming is supported by the async and await keywords. The async keyword is used to mark a method as asynchronous. The await keyword is used to suspend the execution of a method and wait for another task to finish.
+
+The benefits of using asynchronous programming include:
+
+Improved performance: Asynchronous programming can improve performance by allowing you to run multiple tasks at the same time. This can be especially beneficial for applications that perform long-running tasks, such as file I/O or network operations.
+Improved responsiveness: Asynchronous programming can improve the responsiveness of your application by allowing the user to continue interacting with the application while long-running tasks are running in the background.
+Easier to write: Asynchronous programming can make your code easier to write by simplifying the code that you need to write to handle long-running tasks.
+The usage scenarios for using async and await keywords for asynchronous programming include:
+
+Long-running tasks: Asynchronous programming is ideal for long-running tasks, such as file I/O or network operations. This is because it allows you to run these tasks in the background while the user continues to interact with your application.
+Responsive user interfaces: Asynchronous programming can also be used to improve the responsiveness of your user interface. This is because it allows you to continue updating the user interface while long-running tasks are running in the background.
+Concurrent tasks: Asynchronous programming can also be used to run concurrent tasks. This is useful for applications that need to perform multiple tasks at the same time.
+Here is an example of how to use the async and await keywords for asynchronous programming:
+
+C#
+async Task DoSomethingAsync()
+{
+    // Do some long-running task.
+    var result = await Task.Run(() => {
+        // This task will run in the background.
+        return "Hello, world!";
+    });
+
+    // Use the result of the task.
+    Console.WriteLine(result);
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+12   State management is the process of maintaining the state of an application across multiple requests. This is important for applications that need to track user input, keep track of a user's session, or store other data that needs to be preserved between requests.
+
+There are four main techniques available for managing state in ASP.NET:
+
+ViewState: ViewState is a hidden field that is automatically included in every page in an ASP.NET application. It can be used to store data that needs to be preserved between requests.
+Session: Session state is a way to store data that is specific to a user's session. This data is stored on the server and is available to all pages that the user visits during their session.
+Cookies: Cookies are small pieces of data that are stored on the user's browser. They can be used to store data that needs to be preserved between visits to the application.
+Application state: Application state is a way to store data that is shared by all users of the application. This data is stored on the server and is available to all pages in the application.
+Each of these techniques has its own advantages and disadvantages. ViewState is the simplest technique to use, but it can be slow and can be vulnerable to cross-site scripting attacks. Session state is more secure than ViewState, but it can be more difficult to manage. Cookies are a good way to store small amounts of data, but they can be easily deleted by the user. Application state is the most secure technique, but it can be difficult to manage if the application is used by a large number of users.
+
+The best technique for managing state depends on the specific needs of the application. If the application only needs to store a small amount of data, cookies may be a good option. If the application needs to store more data or if the data needs to be secure, session state or application state may be a better option.
+
+Here is a table that summarizes the advantages and disadvantages of each technique:
+
+Technique	Advantages	Disadvantages
+ViewState	Simple to use	Slow, vulnerable to XSS attacks
+Session state	More secure than ViewState	More difficult to manage
+Cookies	Good for storing small amounts of data	Can be easily deleted by the user
+Application state	Most secure technique	Difficult to manage for large applications
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+13  Data Providers: Data providers are the foundation of ADO.NET. They provide a layer of abstraction between the application and the database. There are many different data providers available, each of which supports a different type of database.
+Connection: A connection object represents a connection to a database. It is used to open and close the connection, and to execute commands against the database.
+Command: A command object represents a database command. It is used to execute SQL statements and stored procedures.
+DataReader: A data reader object is used to read data from the database. It provides a forward-only, read-only stream of data.
+DataAdapter: A data adapter object is used to fill and update data in a DataSet. It provides a way to read data from the database and write data back to the database.
+Here is a brief explanation of the purpose and usage of each of these components:
+
+Data Providers: Data providers provide a way to access different types of databases. For example, there are data providers for SQL Server, Oracle, MySQL, and many others.
+Connection: A connection object is used to open and close a connection to a database. It also provides methods for executing commands against the database.
+Command: A command object represents a database command. It is used to execute SQL statements and stored procedures.
+DataReader: A data reader object is used to read data from the database. It provides a forward-only, read-only stream of data.
+DataAdapter: A data adapter object is used to fill and update data in a DataSet. It provides a way to read data from the database and write data back to the database.
+ADO.NET also provides a number of other components, such as DataSets, DataViews, and DataTables. These components are used to store and manipulate data in memory.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+14  Data validation is the process of checking whether user input is valid. This is important to ensure that the data is correct and that it can be processed by the application.
+
+In MVC, data validation is typically done using data annotations and validation attributes. Data annotations are attributes that can be applied to properties in a model class. These attributes specify the validation rules that should be applied to the property.
+
+Validation attributes are classes that implement the System.ComponentModel.DataAnnotations.ValidationAttribute interface. These classes provide specific validation rules, such as requiring a value, checking the length of a value, or checking the format of a value.
+
+To validate user input using data annotations, you simply need to apply the appropriate validation attributes to the properties in your model class. For example, the following code shows how to apply the Required attribute to the Name property in a model class:
+
+C#
+[Required]
+public string Name { get; set; }
+Use code with caution. Learn more
+This code specifies that the Name property must have a value. If the user does not enter a value for the Name property, the validation will fail.
+
+There are many other validation attributes available, such as the MaxLength attribute, the MinLength attribute, and the EmailAddress attribute. You can use these attributes to specify a variety of validation rules for your model properties.
+
+Once you have applied the validation attributes to your model properties, you can use the ModelState object to check whether the user input is valid. The ModelState object is a property of the ActionResult object that is returned from an MVC controller action method. The ModelState object contains a collection of errors that are associated with the model properties.
+
+To check whether the user input is valid, you can use the ModelState.IsValid property. This property returns a Boolean value that indicates whether the model is valid. If the ModelState.IsValid property is false, you can display the errors to the user.
+
+Here is an example of how to check whether the user input is valid:
+
+C#
+if (!ModelState.IsValid)
+{
+    // Display the errors to the user.
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+15 Benefits:
+
+Stored procedures can improve performance by caching the compiled code.
+Stored procedures can encapsulate complex logic, making it easier to maintain and test the application.
+Stored procedures can provide security by restricting access to the database.
+Stored procedures can be used to implement business logic, making the application more flexible and easier to change.
+Limitations:
+
+Stored procedures can be difficult to debug.
+Stored procedures can make the application more difficult to understand.
+Stored procedures can be a security risk if they are not properly implemented.
+Scenarios where you would choose to use stored procedures instead of inline SQL statements:
+
+When you need to improve performance.
+When you need to encapsulate complex logic.
+When you need to provide security.
+When you need to implement business logic.
+Here are some additional things to consider when deciding whether to use stored procedures or inline SQL statements:
+
+The size and complexity of the query.
+The frequency of the query.
+The security requirements.
+The maintainability requirements.
+Ultimately, the decision of whether to use stored procedures or inline SQL statements depends on the specific needs of the application.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+16. In Model-View-Controller (MVC) architecture, a model is a class that represents the data of an application. It is responsible for storing, retrieving, and manipulating data. Models are typically used to interact with a database or other data source.
+
+The purpose of a model is to provide a way to access and manipulate data in a way that is independent of the view or controller. This makes it easier to test and maintain the application, as well as to make changes to the data source without affecting the view or controller.
+
+The structure of a model is typically a collection of properties that represent the data in the application. These properties may be simple types, such as strings or integers, or they may be complex types, such as lists or objects. Models may also have methods that are used to manipulate the data, such as methods to save, update, or delete data.
+
+Models interact with the database or data source through the use of data access objects (DAOs). DAOs are classes that provide methods for accessing and manipulating data in the database. Models use DAOs to perform operations such as inserting, updating, and deleting data.
+
+Here is an example of creating and using a model in an MVC application:
+
+C#
+public class Book
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public int Pages { get; set; }
+}
+
+public class BookController
+{
+    private readonly IBookRepository _bookRepository;
+
+    public BookController(IBookRepository bookRepository)
+    {
+        _bookRepository = bookRepository;
+    }
+
+    public ActionResult Index()
+    {
+        var books = _bookRepository.GetAllBooks();
+        return View(books);
+    }
+
+    public ActionResult Create()
+    {
+        return View();
+    }
+
+    public ActionResult Save(Book book)
+    {
+        _bookRepository.SaveBook(book);
+        return RedirectToAction("Index");
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+20 using System;
+using System.Data;
+using System.Data.SqlClient;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        string connectionString = "Data Source=localhost;Initial Catalog=LibraryDB;Integrated Security=True";
+        string bookId;
+
+        // Prompt the user to enter the book ID.
+        Console.WriteLine("Enter the book ID:");
+        bookId = Console.ReadLine();
+
+        // Validate the input.
+        if (bookId == null || bookId.Length == 0)
+        {
+            Console.WriteLine("Please enter a valid book ID.");
+            return;
+        }
+
+        // Create a connection to the database.
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        // Create a command to delete the book details from the database.
+        SqlCommand command = new SqlCommand("DELETE FROM Books WHERE BookId = @BookId", connection);
+        command.Parameters.AddWithValue("@BookId", bookId);
+
+        // Execute the command.
+        command.ExecuteNonQuery();
+
+        // Close the connection to the database.
+        connection.Close();
+
+        // Display a message to indicate that the book details have been deleted.
+        Console.WriteLine("The book details have been deleted successfully.");
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+18 using System;
+using System.Data;
+using System.Data.SqlClient;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        string connectionString = "Data Source=localhost;Initial Catalog=StudentDB;Integrated Security=True";
+        string courseName;
+        string courseCode;
+        int creditHours;
+
+        // Prompt the user to enter the course details.
+        Console.WriteLine("Enter the course name:");
+        courseName = Console.ReadLine();
+        Console.WriteLine("Enter the course code:");
+        courseCode = Console.ReadLine();
+        Console.WriteLine("Enter the number of credit hours:");
+        creditHours = int.Parse(Console.ReadLine());
+
+        // Validate the input.
+        if (courseName == null || courseName.Length == 0)
+        {
+            Console.WriteLine("Please enter a valid course name.");
+            return;
+        }
+        if (courseCode == null || courseCode.Length == 0)
+        {
+            Console.WriteLine("Please enter a valid course code.");
+            return;
+        }
+        if (creditHours < 1 || creditHours > 4)
+        {
+            Console.WriteLine("Please enter a valid number of credit hours.");
+            return;
+        }
+
+        // Create a connection to the database.
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        // Create a command to insert the course details into the database.
+        SqlCommand command = new SqlCommand("INSERT INTO Courses (CourseName, CourseCode, CreditHours) VALUES (@CourseName, @CourseCode, @CreditHours)", connection);
+        command.Parameters.AddWithValue("@CourseName", courseName);
+        command.Parameters.AddWithValue("@CourseCode", courseCode);
+        command.Parameters.AddWithValue("@CreditHours", creditHours);
+
+        // Execute the command.
+        command.ExecuteNonQuery();
+
+        // Close the connection to the database.
+        connection.Close();
+
+        // Display a message to indicate that the course details have been inserted.
+        Console.WriteLine("The course details have been inserted successfully.");
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+19 using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        int firstNumber;
+        int secondNumber;
+
+        Console.WriteLine("Enter the first number:");
+        firstNumber = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the second number:");
+        secondNumber = int.Parse(Console.ReadLine());
+
+        try
+        {
+            int result = firstNumber / secondNumber;
+            Console.WriteLine("The result is {0}.", result);
+        }
+        catch (DivideByZeroException)
+        {
+            Console.WriteLine("Division by zero error occurred.");
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+17 using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        string ageStr;
+        int age;
+
+        Console.WriteLine("Enter your age:");
+        ageStr = Console.ReadLine();
+
+        try
+        {
+            age = int.Parse(ageStr);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid age entered. Please enter a valid age.");
+            return;
+        }
+
+        Console.WriteLine("Your age is {0}.", age);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
